@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- The first request of a new session (sub-agent bridge requests, first turn after
+  a reset) is no longer sent without tools.
+
 ## [1.12.0] - 2026-10-07
 
 ### UPGRADING
