@@ -1435,9 +1435,11 @@ Each built-in tool requires a "label" parameter (shown to user).
 			// Reload messages from context.jsonl
 			// This picks up any messages synced above
 			const reloadedSession = sessionManager.buildSessionContext();
+			// Assign even when empty: AgentSession seeds an unpersisted tool declaration
+			// that would otherwise make the first request of a new session go out toolless.
+			stripDynamicContextFromMessages(reloadedSession.messages);
+			agent.state.messages = reloadedSession.messages;
 			if (reloadedSession.messages.length > 0) {
-				stripDynamicContextFromMessages(reloadedSession.messages);
-				agent.state.messages = reloadedSession.messages;
 				log.logInfo(`[${channelId}] Reloaded ${reloadedSession.messages.length} messages from context`);
 			}
 
