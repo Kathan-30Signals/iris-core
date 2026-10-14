@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.12.1] - 2026-10-14
+
 ### Fixed
 
 - The first request of a new session (sub-agent bridge requests, first turn after
