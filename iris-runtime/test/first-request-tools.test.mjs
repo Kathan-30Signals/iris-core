@@ -70,7 +70,15 @@ test("the first request of a new session is sent with the built-in tools", async
 	await new Promise((resolve) => probe.close(resolve));
 
 	const child = spawn(process.execPath, [mainJs, "--sandbox=host", workingDir], {
-		env: { ...process.env, HOME: workingDir, IRIS_BRIDGE_PORT: String(bridgePort), IRIS_PROVIDER: "fake", IRIS_MODEL: "fake-model" },
+		// Keep real transport credentials, secret providers, and telemetry out of
+		// this runtime: it must only use the temporary workspace and fake model.
+		env: {
+			PATH: process.env.PATH,
+			HOME: workingDir,
+			IRIS_BRIDGE_PORT: String(bridgePort),
+			IRIS_PROVIDER: "fake",
+			IRIS_MODEL: "fake-model",
+		},
 		stdio: "ignore",
 	});
 
