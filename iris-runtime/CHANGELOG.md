@@ -16,6 +16,10 @@
   she now diagnoses, fixes, and re-runs it instead of stopping to ask. Installs
   with their own `CONSTITUTION.md` are unaffected.
 
+### Security
+
+- Bumped transitive `hono` 4.13.7 -> 4.13.13 (GHSA: `serveStatic` double path decoding).
+
 ## [1.12.1] - 2026-10-14
 
 ### Fixed
