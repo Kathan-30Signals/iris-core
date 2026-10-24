@@ -16,6 +16,11 @@
   she now diagnoses, fixes, and re-runs it instead of stopping to ask. Installs
   with their own `CONSTITUTION.md` are unaffected.
 
+### Fixed
+
+- `github`, `spawn-agent`, and `self-extend` skills push with an
+  `x-access-token:` URL, fixing `could not read Username` on token-only pushes.
+
 ### Security
 
 - Bumped transitive `hono` 4.13.7 -> 4.13.13 (GHSA: `serveStatic` double path decoding).
