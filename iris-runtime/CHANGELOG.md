@@ -20,6 +20,11 @@
 
 - `github`, `spawn-agent`, and `self-extend` skills push with an
   `x-access-token:` URL, fixing `could not read Username` on token-only pushes.
+- `github`, `spawn-agent` and `self-extend` skills fetch the PAT with `get-secret GITHUB-TOKEN`
+  instead of `$GITHUB_TOKEN`, so pushes work in store/proxy secrets mode.
+- The system prompt tells the agent to resolve credentials with `get-secret`
+  rather than concluding they are missing from the environment; the rule is
+  documented for skill authors in `docs/skills.md`.
 
 ### Security
 
